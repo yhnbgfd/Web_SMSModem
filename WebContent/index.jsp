@@ -8,11 +8,13 @@
 </head>
 <body>
 <form action="SmsServ">
-发送短信：<br />
-手机：<input type="text" name="mobile" /><br />
+发送短信：<input type="checkbox" name="isInterrupt" value ="true" >发送失败时是否中断<br>
+<br />
+手机：<input type="text" name="mobile" />
+<br />
 内容：<input type="text" name="content" />
 <input type="submit" value="发送" />
 </form>
-<p style="display:none">SMSModem/SmsServ?mobile=&content=</p>
+<p style="display:none">SMSModem/SmsServ?mobile=,,,&content=</p>
 </body>
 </html>

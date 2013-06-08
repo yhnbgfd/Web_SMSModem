@@ -20,6 +20,7 @@ public class SmsServ extends HttpServlet {
 		String mobile = request.getParameter("mobile");
 		String content = request.getParameter("content");
 		content = new String(content.getBytes("ISO-8859-1"),"UTF-8");
+		String Interrupt = request.getParameter("isInterrupt");
 		
 		StringBuffer output = new StringBuffer();
 		String[] mobiles = mobile.split(",");
@@ -32,14 +33,16 @@ public class SmsServ extends HttpServlet {
 		{
 			if( s.length() != 11 ){
 				output.append(s+" 号码错误<br/>");
-//			}else if( content.equals("") ){
-//				output.append(" 内容不能为空<br/>");
 			}else{
 				Boolean flag = sms.SmsMain.sendSms(mobile, content);
 				if(flag){
 					output.append(s+" 短信发送成功<br/>");
 				}else{
 					output.append(s+" 短信发送失败<br/>");
+					if("true".equals(Interrupt)){
+						out.println(output.append("已中断短信发送"));
+						return;
+					}
 				}
 			}
 		}
