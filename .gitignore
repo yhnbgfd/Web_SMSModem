@@ -16,7 +16,7 @@ local.properties
 .settings/
 .loadpath
 .svn/
-WebContent/WEB-INF/classes/*
+WebContent/WEB-INF/classes/*.class
 # External tool builders
 .externalToolBuilders/
 
