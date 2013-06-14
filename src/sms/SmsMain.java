@@ -26,6 +26,7 @@ public class SmsMain {
 		Map<String,String> map = getProperties("sms.properties");
 		
 		System.out.println("comPort="+ map.get("comPort"));
+		//sms,/dev/ttyUSB0,9600,,,
 		SerialModemGateway gateway = new SerialModemGateway("SMS", map.get("comPort"),
 				Integer.parseInt(map.get("baudRate")), map.get("manufacturer"), map.get("model"));
 		
@@ -34,10 +35,8 @@ public class SmsMain {
 		try {
 			srv.S.SERIAL_POLLING = true;
 			srv.addGateway(gateway);
-
 			srv.startService();
 			System.out.println("Modem connected.");
-
 		} catch (Exception ex) {
 			ex.printStackTrace();
 			return false;
@@ -108,6 +107,5 @@ public class SmsMain {
 			map.put(key, p.getProperty(key).trim());
 		}
 		return map;
-
 	}
 }

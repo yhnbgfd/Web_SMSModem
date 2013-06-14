@@ -17,10 +17,10 @@ public class SmsServ extends HttpServlet {
 		response.setContentType("text/html;charset=UTF-8");
 		PrintWriter out = response.getWriter();
 		
-		String mobile = request.getParameter("mobile");
-		String content = request.getParameter("content");
+		String mobile = request.getParameter("mobile");	//手机号码，英文逗号隔开
+		String content = request.getParameter("content");	//短信内容
 		content = new String(content.getBytes("ISO-8859-1"),"UTF-8");
-		String Interrupt = request.getParameter("isInterrupt");
+		String Interrupt = request.getParameter("isInterrupt");	//发送失败是否中断：true中断null不中断
 		
 		StringBuffer output = new StringBuffer();
 		String[] mobiles = mobile.split(",");
