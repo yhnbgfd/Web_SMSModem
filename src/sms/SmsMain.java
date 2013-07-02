@@ -52,7 +52,7 @@ public class SmsMain {
 	}
 
 	public static void main(String args[]) {
-		//sendSms();
+		sendSms("15017566395","测试短信");
 	}
 
 	public static boolean sendSms(String mobile, String content) {
